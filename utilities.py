@@ -11,6 +11,7 @@ from albumentations.pytorch.transforms import ToTensorV2
 from PIL import Image
 from torchvision import transforms
 import cv2
+import time
 
 class ArcMarginProduct(nn.Module):
     r"""Implement of large margin arc distance: :
@@ -126,6 +127,21 @@ def set_seed(seed):
     os.environ['PYTHONHASHSEED'] = str(seed)
 
 
+def get_similiarity_hnsw(embeddings_gallery, emmbeddings_query, k):
+    # this is guy is really fast
+    print('Processing indices...')
+
+    s = time.time()
+    index = faiss.IndexHNSWFlat(embeddings_gallery.shape[1], 32)
+    index.add(embeddings_gallery)
+
+    scores, indices = index.search(emmbeddings_query, k) 
+    e = time.time()
+
+    print(f'Finished processing indices, took {e - s}s')
+    return scores, indices
+
+
 def get_similiarity(embeddings, k):
     print('Processing indices...')
 
@@ -142,14 +158,14 @@ def get_similiarity(embeddings, k):
 
     return scores, indices
 
-def map_per_image(label, predictions): 
+def map_per_image(label, predictions, k=5): 
     try:
-        return 1 / (predictions[:5].index(label) + 1)
+        return 1 / (predictions[:k].index(label) + 1)
     except ValueError:
         return 0.0
 
-def map_per_set(labels, predictions):
-    return np.mean([map_per_image(l, p) for l,p in zip(labels, predictions)])
+def map_per_set(labels, predictions, k=5):
+    return np.mean([map_per_image(l, p, k) for l,p in zip(labels, predictions)])
 
 class AverageMeter(object):
     """Computes and stores the average and current value"""

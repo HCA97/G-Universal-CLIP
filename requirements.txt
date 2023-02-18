@@ -1,0 +1,16 @@
+numpy==1.23.5
+pandas==1.5.3
+opencv-python==4.7.0.68
+torch==1.13.1
+torchvision==0.14.1
+tqdm==4.64.1
+PyYAML==6.0
+scikit-learn==1.2.1
+scipy==1.10.0
+open-clip-torch==2.11.1
+transformers==4.26.0
+pytorch-metric-learning==2.0.0
+faiss-gpu==1.7.2
+albumentations==1.3.0
+jupyter
+matplotlib

@@ -141,6 +141,18 @@ def get_similiarity_hnsw(embeddings_gallery, emmbeddings_query, k):
     print(f'Finished processing indices, took {e - s}s')
     return scores, indices
 
+def get_similiarity_l2(embeddings_gallery, emmbeddings_query, k):
+    print('Processing indices...')
+
+    s = time.time()
+    index = faiss.IndexFlatL2(embeddings_gallery.shape[1])
+    index.add(embeddings_gallery)
+
+    scores, indices = index.search(emmbeddings_query, k) 
+    e = time.time()
+
+    print(f'Finished processing indices, took {e - s}s')
+    return scores, indices
 
 def get_similiarity(embeddings, k):
     print('Processing indices...')
@@ -206,9 +218,9 @@ def convert_indices_to_labels(indices, labels):
     return indices_copy
 
 class Multisample_Dropout(nn.Module):
-    def __init__(self):
+    def __init__(self, dropout_rate=0.1):
         super(Multisample_Dropout, self).__init__()
-        self.dropout = nn.Dropout(.1)
+        self.dropout = nn.Dropout(dropout_rate)
         self.dropouts = nn.ModuleList([nn.Dropout((i+1)*.1) for i in range(5)])
         
     def forward(self, x, module):

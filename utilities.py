@@ -154,6 +154,20 @@ def get_similiarity_l2(embeddings_gallery, emmbeddings_query, k):
     print(f'Finished processing indices, took {e - s}s')
     return scores, indices
 
+
+def get_similiarity_IP(embeddings_gallery, emmbeddings_query, k):
+    print('Processing indices...')
+
+    s = time.time()
+    index = faiss.IndexFlatIP(embeddings_gallery.shape[1])
+    index.add(embeddings_gallery)
+
+    scores, indices = index.search(emmbeddings_query, k) 
+    e = time.time()
+
+    print(f'Finished processing indices, took {e - s}s')
+    return scores, indices
+
 def get_similiarity(embeddings, k):
     print('Processing indices...')
 

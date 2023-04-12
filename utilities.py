@@ -70,6 +70,21 @@ class DenseCrossEntropy(nn.Module):
         loss = -logprobs * target
         loss = loss.sum(-1)
         return loss.mean()
+    
+class FocalLoss(nn.Module):
+    def __init__(self, gamma=2):
+        super(FocalLoss, self).__init__()
+        self.gamma = gamma
+
+    def forward(self, x, target):
+        x = x.float()
+        target = target.float()
+        probs = torch.nn.functional.softmax(x, dim=-1)
+        logprobs = torch.log(probs)
+
+        loss = -logprobs * target * (1 - probs) ** self.gamma
+        loss = loss.sum(-1)
+        return loss.mean()
 
 class ArcMarginProduct_subcenter(nn.Module):
     def __init__(self, in_features, out_features, k=3):
@@ -90,9 +105,12 @@ class ArcMarginProduct_subcenter(nn.Module):
         return cosine   
 
 class ArcFaceLossAdaptiveMargin(nn.modules.Module):
-    def __init__(self, margins, s=30.0):
+    def __init__(self, margins, s=30.0, crit='ce'):
         super().__init__()
-        self.crit = DenseCrossEntropy()
+        if crit == 'ce':
+            self.crit = DenseCrossEntropy()
+        else:
+            self.crit = FocalLoss()
         self.s = s
         self.margins = margins
             

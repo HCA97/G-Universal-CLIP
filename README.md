@@ -2,27 +2,13 @@
 
 This is my implementation for Aicrowd Visual Product Recognition Challenge. The goal is doing a visual search over e-commerce products.
 
-The training and most of the hyper parameters are taken from [paper](https://arxiv.org/abs/2210.11141) which is the authors of the repo i fork too.
+The training and most of the hyper parameters are taken from [paper](https://arxiv.org/abs/2210.11141) which is the authors of the repo I fork too.
 
 ## Structure
 
-- main branch is where all of my experiments are if you are interested some of my ideas you can check on it however they are not documented so you need to play ground.
+- `main` branch is where all of my experiments are if you are interested some of my ideas you can check on it however they are not documented so you need to play ground.
 
-- aicrowd branch is my final solution.
-
-- [training on produck-10k and h&m](aicrowd-products-10k-h%26m-clip-training-v2-vit-h.ipynb)
-
-We use code and pre-trained models from the amazing repo **[open_clip](https://github.com/mlfoundations/open_clip)** !
-
-- [soup.ipynb](/soup.ipynb) model soups script. Idea from mlfoundation [WiSE-FT](https://github.com/mlfoundations/wise-ft) and [Robust fine-tuning of zero-shot models](https://arxiv.org/abs/2109.01903)
-
-- [train_vit_h_224.ipynb](train_vit_h_224.ipynb) - Train ViT-H/14 pre-trained on LAION-2B
-
-- [train_vit_l_336.ipynb](train_vit_l_336.ipynb) - Train ViT-L/14 pre-trained on LAION-2B
-
-- [utilities.py](utilities.py) - General utilities!
-
-- Models are available at this link : https://www.kaggle.com/datasets/ivanaerlic/guiemodels
+- `aicrowd` branch is my final solution.
 
 ## Setup
 

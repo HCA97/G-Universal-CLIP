@@ -1,27 +1,16 @@
-# [General Image Descriptors for Open World Image Retrieval using ViT CLIP @ ECCV 2022](https://ilr-workshop.github.io/ECCVW2022/)
+# [Visual Product Recognition Challenge](https://www.aicrowd.com/challenges/visual-product-recognition-challenge-2023)
 
-**[4th place solution - Google Universal Image Embedding Kaggle Challenge](https://www.kaggle.com/competitions/google-universal-image-embedding)**
+This is my implementation for Aicrowd Visual Product Recognition Challenge. The goal is doing a visual search over e-commerce products.
 
-**[Instance-Level Recognition workshop](https://ilr-workshop.github.io/ECCVW2022/)**
-
-
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2210.11141)
-![visitors](https://visitor-badge.glitch.me/badge?page_id=IvanAer/G-Universal-CLIP)
-
-[Marcos V. Conde](https://scholar.google.com/citations?user=NtB1kjYAAAAJ&hl=en), [Ivan Aerlic](https://www.kaggle.com/ivanaerlic), [Simon Jégou](https://www.kaggle.com/simjeg)
-
-------------------
-
-**News 🚀🚀**
-- [10/2022] We open sourced [a kaggle notebook](https://www.kaggle.com/code/simjeg/guie-a-zero-shot-solution) achieving 0.603 on the private LB in a zero shot manner (no data), leveraging CLIP ViT-H, GPT3 and a PCA 
-- [10/2022] The paper will be available by 17th October
-- [10/2022] 4th place solution! setting up this repo
-
-------------------
-
-<img src="media/guie-lb.png " alt="guie lb" width="600" border="0">
+The training and most of the hyper parameters are taken from [paper](https://arxiv.org/abs/2210.11141) which is the authors of the repo i fork too.
 
 ## Structure
+
+- main branch is where all of my experiments are if you are interested some of my ideas you can check on it however they are not documented so you need to play ground.
+
+- aicrowd branch is my final solution.
+
+- [training on produck-10k and h&m](aicrowd-products-10k-h%26m-clip-training-v2-vit-h.ipynb)
 
 We use code and pre-trained models from the amazing repo **[open_clip](https://github.com/mlfoundations/open_clip)** !
 
@@ -35,7 +24,17 @@ We use code and pre-trained models from the amazing repo **[open_clip](https://g
 
 - Models are available at this link : https://www.kaggle.com/datasets/ivanaerlic/guiemodels
 
-------------------
+## Setup
+
+### 1. Get Data
+
+### 2. Setup Env
+
+### 3. Run the Experiments
+
+### 4. Ensemble the Experiements
+
+
 
 ## Contact
 

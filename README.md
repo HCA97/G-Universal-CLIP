@@ -50,7 +50,7 @@ python download_images.py
 * `model 2`: weight ensemble of `model 1` + `EX2` results
 * `model 3`: weight ensemble of `EX3` + `EX4` results
 
-To run the weight ensemble see [link](weight_ensembele.ipynb)
+To run the weight ensemble see [link](experiments/weight_ensembele.ipynb)
 
 
 

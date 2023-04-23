@@ -1,12 +1,13 @@
 # [Visual Product Recognition Challenge](https://www.aicrowd.com/challenges/visual-product-recognition-challenge-2023)
 
-This is my implementation for Aicrowd Visual Product Recognition Challenge. The goal is doing a visual search over e-commerce products.
+My solution for Aicrowd Visual Product Recognition Challenge. The goal is doing a visual search over e-commerce products.
 
-The training and most of the hyper parameters are taken from [paper](https://arxiv.org/abs/2210.11141) which is the authors of the repo I fork too.
+The training and most of the hyper parameters are taken from [paper](https://arxiv.org/abs/2210.11141), which is the authors of the repo I fork.
+
 
 ## Structure
 
-- `main` branch is where all of my experiments are if you are interested some of my ideas you can check on it however they are not documented so you need to play ground.
+- `main` branch is where all of my experiments are if you are interested some of my ideas you can check on it however they are not documented so you need to play around.
 
 - `aicrowd` branch is my final solution.
 
@@ -19,7 +20,7 @@ The training and most of the hyper parameters are taken from [paper](https://arx
     ***Note:** VIT-H is a huge model you need at least 24GB VRAM to run the experiments.*
 * `pip install -r requirements.txt`
 
-### 2. Get Data
+### 2. Downlaod Traiing Data
 
 * Product-10k [link](https://products-10k.github.io/)
 * H&M [link](https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data)
@@ -27,9 +28,9 @@ The training and most of the hyper parameters are taken from [paper](https://arx
 * Shopee [link](https://www.kaggle.com/competitions/shopee-product-matching/data)
 * Test Data from aicrowd team (Optional) [link](https://www.aicrowd.com/challenges/visual-product-recognition-challenge-2023/dataset_files)
 
-Download the datasets and unzip them into their respected folders. 
+Download the datasets and unzip them into their respective folders. 
 
-To install the amazan dataset first;
+To install the amazan dataset run;
 ```bash
 cd amazon_dataset_1
 python download_meta_data.py
@@ -50,9 +51,6 @@ python download_images.py
 * `model 2`: weight ensemble of `model 1` + `EX2` results
 * `model 3`: weight ensemble of `EX3` + `EX4` results
 
-To run the weight ensemble see [link](experiments/weight_ensembele.ipynb)
+To run the weight ensemble see [link](experiments/weight_ensembele.ipynb).
 
-
-
-
-
+The trained models can be found in [huggingface](https://huggingface.co/mec001/aicrowd-visual-recognition-models).
